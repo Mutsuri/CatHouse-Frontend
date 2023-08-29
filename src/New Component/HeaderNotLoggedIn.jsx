@@ -8,7 +8,8 @@ import profile from '../assets/profile.png'
 import favorite from '../assets/favorite.png'
 import emailpic from '../assets/email.png'
 import leftchevron from '../assets/leftchevron.png'
-import { Link } from 'react-router-dom';
+import googleicon from '../assets/googleicon.png'
+import { Link, redirect } from 'react-router-dom';
 import { Field, Form, Formik } from 'formik';
 import { Tab, FormControl,
   FormLabel,
@@ -22,6 +23,7 @@ import { Tab, FormControl,
   Flex, Menu, MenuButton, MenuList, MenuItem, HStack, Input, 
   InputGroup, InputLeftElement, Image,Box } from '@chakra-ui/react';
 import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import axios from 'axios';
 
   const SearchButtonWithModal = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -94,6 +96,10 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
             <ModalBody align="center" justify="center">
               <Image src={fulllogostore} alt="Logo" width="120px" height="120px" />
                 <LoginButtonWithEmail />
+                <Button onClick={onOpen} colorScheme="white" w="318px" h="50px" variant="outline" position="relative" top="30px" border="1px solid #D4D4D4" _hover={{boxShadow: '0 5px 6px rgba(0, 0, 0, .1)'}} >  
+                  <Image src={googleicon} alt="emailpic" width="20px" height="20px" position="relative" left="-50px"/>
+                  <Text fontFamily={'Kanit, sans-serif'} fontWeight="bold">ดำเนินการต่อด้วยGoogle</Text>
+                </Button>
             </ModalBody>
             <ModalFooter></ModalFooter>
           </ModalContent>
@@ -121,7 +127,6 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
         onClose();
       }
     };
-
 
     return (
       <Box p="1">
@@ -161,7 +166,7 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
                       <Field name='email'>
                         {({ field, form }) => (
                           <FormControl isInvalid={form.errors.name && form.touched.name}>
-                            <Input {...field} placeholder='อีเมล' />
+                            <Input {...field} placeholder='อีเมล'/>
                             <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                           </FormControl>
                         )}
@@ -170,7 +175,7 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
                       <Field name='password'>
                         {({ field, form }) => (
                           <FormControl isInvalid={form.errors.name && form.touched.name}>
-                            <Input {...field} placeholder='รหัสผ่าน' />
+                            <Input {...field} placeholder='รหัสผ่าน'/>
                             <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                           </FormControl>
                         )}
@@ -182,13 +187,11 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
                         color="white"
                         fontSize="14px"
                         bg="#0F63E9"
-                        isLoading={props.isSubmitting}
+                        //isLoading={props.isSubmitting}
                         type='submit'
                         position="relative"
                         top="20px"
                         left="50px"> เข้าสู่ระบบ
-                        
-
                       </Button>
                     </Form>
                   )}
