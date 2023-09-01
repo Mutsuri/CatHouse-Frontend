@@ -11,6 +11,8 @@ import {
 import picprofile from '../assets/profile2.png'
 import { Link } from 'react-router-dom';
 import logout from '../assets/exit.png'
+import CardItemHasSale from './CardItemHasSale';
+import CardItemNotSale from './CardItemNotSale';
 
 const AddWishlist = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -123,6 +125,14 @@ const AddWishlist = () => {
                         <Text fontWeight="bold" fontSize="18" position="relative" right="-10px" >รายการสินค้าที่สนใจ</Text>
                         <Text color="#757575" fontSize="12" position="relative" right="-10px" bottom="-5px">พื้นที่รวบรวมสินค้าที่ชอบจาก Cat House สู่มือคุณ</Text>
                     </Box>
+                    <Box>
+                        <Flex gap="10px" position="relative" right="-10px">
+                            <CardItemHasSale/>
+                            <CardItemNotSale/>
+                        </Flex>
+                    </Box>
+                    
+
                     {/* <Box w="940px" h="43px" bg="#FAFAFA" borderTop="1px" borderBottom="1px" borderColor="#DDDDDD" position="relative" right="-10px" top="-30px">
                         <Flex>
                             <Text fontWeight="bold" position="relative" right="-100px" top="8px">สินค้า</Text>
