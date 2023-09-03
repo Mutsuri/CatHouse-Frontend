@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Home from './Home';
+import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
 import Login from './Login';
 import HomewithLogin from './HomewithLogin';

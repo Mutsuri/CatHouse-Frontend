@@ -24,6 +24,7 @@ import { Tab, FormControl,
   InputGroup, InputLeftElement, Image,Box } from '@chakra-ui/react';
 import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 import axios from 'axios';
+// import jwt from "jsonwebtoken";
 
   const SearchButtonWithModal = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -210,6 +211,14 @@ import axios from 'axios';
                         alert(JSON.stringify(values, null, 2))
                         actions.setSubmitting(false)
                       }, 1000)
+                        // api return result : true
+                        // const res = {
+                        //     success : true,
+                        // }
+                        // if(res.success){
+                        //     const token = jwt.sign({email:"pathinya@gmail.com"},'shhhhh');
+                        //     localStorage.setItem("Auth", token);
+                        // }
                     }}
                   >
                     {(props) => (

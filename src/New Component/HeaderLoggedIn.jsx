@@ -23,6 +23,7 @@ import { Tab, FormControl,
   Flex, Menu, MenuButton, MenuList, MenuItem, HStack, Input, 
   InputGroup, InputLeftElement, Image,Box } from '@chakra-ui/react';
 import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import HeaderNotLoggedIn from './HeaderNotLoggedIn';
 
   const SearchButtonWithModal = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -70,6 +71,8 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
     const LinkWithoutUnderline = {
       textDecoration: 'none',
     };
+    localStorage.setItem("Auth","tet");
+    const Auth = localStorage.getItem("Auth");
     useEffect(() => {
       const handleScroll = () => {
         if (window.pageYOffset > 0) {
@@ -85,158 +88,162 @@ import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
         window.removeEventListener('scroll', handleScroll);
       };
     }, []);
-
-    return (
-    <Flex as="header" align="center" py={2} px={320} borderBottom="1px" borderColor="gray.200" position={isScrolled ? 'fixed' : 'static'} top={isScrolled ? '0' : 'auto'} bg={isScrolled ? 'white' : 'transparent'} boxShadow={isScrolled ? '0px 1px 6px rgba(0, 0, 0, 0.1)' : 'none'} transition="all" zIndex="999">
-      <Box w="5000px">
-      <Flex align="center">
-        <Link to={'/HomewithLogin'}>
-          <Image src={logostore} alt="Logo" width="60px" height="40px" />
-        </Link>
-        
-        <Box p="1" ml="20px">
-          <Menu>
-            <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white">
-              <Flex justifyContent="column" alignItems="center">
-                <Text fontFamily={'Kanit, sans-serif'}>หมวดหมู่สินค้า</Text>
-                <Image src={under} alt="under" boxSize="20px" position="relative" top="2px"/>
-              </Flex>
-            </MenuButton>
-            <MenuList>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
-                Item 1
-              </MenuItem>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
-                Item 2
-              </MenuItem>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
-                Item 3
-              </MenuItem>
-            </MenuList>
-          </Menu>
-        </Box>
-        
-        <Box p="2" ml="20px">
-          <Menu>
-            <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white" >
-              <Flex justifyContent="column" alignItems="center">
-                <Text fontFamily={'Kanit, sans-serif'}>แบรนด์ยอดนิยม</Text>
-                <Image src={under} alt="under" boxSize="20px" position="relative" top="2px"/>
-              </Flex>
-            </MenuButton>
-            <MenuList >
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Item 1</MenuItem>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Item 2</MenuItem>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Item 3</MenuItem>
-            </MenuList>
-          </Menu>
-        </Box>
-
-        <Box p="2" ml="20px">
-          <Menu>
-            <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white" >
-              <Flex justifyContent="column" alignItems="center">
-                <Text fontFamily={'Kanit, sans-serif'}>บทความทั้งหมด</Text>
-                <Image src={under} alt="under" boxSize="20px" position="relative" top="2px"/>
-              </Flex>
-            </MenuButton>
-            <MenuList >
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>บทความทั้งหมด</MenuItem>
-            </Link>
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Hobby News</MenuItem>
-            </Link>
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Buying Guide</MenuItem>
-            </Link>
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Tips & Tricks</MenuItem>
-            </Link>
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Editor's Pick</MenuItem>
-            </Link>
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>รีวิวสินค้า</MenuItem>
-            </Link>
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Best of Mercular</MenuItem>
-            </Link>
-            <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
-              <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>เปรียบเทียบสินค้า</MenuItem>
-            </Link>
-            </MenuList>
-          </Menu>
-        </Box>
-
-        <Box p="2" ml="20px">
-          <Link to={'/Login'}>
+    
+    return( 
+        <> {
+         (Auth != "test") ? <HeaderNotLoggedIn/> :
+      <Flex as="header" align="center" py={2} px={320} borderBottom="1px" borderColor="gray.200" position={isScrolled ? 'fixed' : 'static'} top={isScrolled ? '0' : 'auto'} bg={isScrolled ? 'white' : 'transparent'} boxShadow={isScrolled ? '0px 1px 6px rgba(0, 0, 0, 0.1)' : 'none'} transition="all" zIndex="999">
+        <Box w="5000px">
+        <Flex align="center">
+          <Link to={'/'}>
+            <Image src={logostore} alt="Logo" width="60px" height="40px" />
+          </Link>
+          
+          <Box p="1" ml="20px">
             <Menu>
               <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white">
                 <Flex justifyContent="column" alignItems="center">
-                  <Text fontFamily={'Kanit, sans-serif'}>โปรโมชั่นประจำเดือน</Text>
+                  <Text fontFamily={'Kanit, sans-serif'}>หมวดหมู่สินค้า</Text>
+                  <Image src={under} alt="under" boxSize="20px" position="relative" top="2px"/>
                 </Flex>
               </MenuButton>
+              <MenuList>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
+                  Item 1
+                </MenuItem>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
+                  Item 2
+                </MenuItem>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
+                  Item 3
+                </MenuItem>
+              </MenuList>
             </Menu>
-          </Link>
-        </Box>
-        
-        <Box p="2" ml="20px">
-          <Link to={'/Login'}>
+          </Box>
+          
+          <Box p="2" ml="20px">
             <Menu>
               <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white" >
                 <Flex justifyContent="column" alignItems="center">
-                  <Text fontFamily={'Kanit, sans-serif'}>สินค้าลดราคา</Text>
+                  <Text fontFamily={'Kanit, sans-serif'}>แบรนด์ยอดนิยม</Text>
+                  <Image src={under} alt="under" boxSize="20px" position="relative" top="2px"/>
                 </Flex>
               </MenuButton>
+              <MenuList >
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Item 1</MenuItem>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Item 2</MenuItem>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Item 3</MenuItem>
+              </MenuList>
             </Menu>
-          </Link>
-        </Box>
+          </Box>
 
-        <SearchButtonWithModal />
-        
-        <Box p="1">
-          <Link to='/WL'>
-            <Button w="40px" h="40px" borderRadius="50%" bg="white" border="none" p={0} _hover={{ bg: 'gray.200' }}>
-              <Image src={favorite} alt="favorite" w="55%" h="55%" borderRadius="50%" />
-            </Button>
-          </Link>  
-        </Box>
-
-        <Box p="1">
-          <Link to={'Login'}>
-            <Button w="40px" h="40px" borderRadius="50%" bg="white" border="none" p={0} _hover={{ bg: 'gray.200' }}>
-              <Image src={cartlogo} alt="cartlogo" w="65%" h="65%" borderRadius="50%" />
-            </Button>
-          </Link>
-        </Box>
-
-        <Box p="1">
-          {/* <Link to={'Login'}>
-            <Button w="40px" h="40px" borderRadius="50%" bg="#0F63E9" border="none" p={0} _hover={{ bg: '#0F63E9' }}>
-            </Button>
-          </Link> */}
-          <Menu>
-            <MenuButton w="40px" h="40px" borderRadius="50%" bg="#0F63E9" border="none" p={0} _hover={{ bg: '#0F63E9' }}>
-              <Image src={profilewhite} alt="profilewhite" w="65%" h="65%" borderRadius="50%" position="relative" left="6.5px" />
-            </MenuButton>
-            <MenuList fontFamily={'Kanit, sans-serif'}>
-            < Link to='/Account' ><MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>บัญชีของฉัน</MenuItem></Link>
-              <Link to='/OL' ><MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>รายการคำสั่งซื้อ</MenuItem></Link>
-              <Link to='/WL' ><MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>รายการสินค้าที่สนใจ</MenuItem></Link>
-              <Link to='/' >
-                <MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
-                  ออกจากระบบ
-                </MenuItem>
+          <Box p="2" ml="20px">
+            <Menu>
+              <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white" >
+                <Flex justifyContent="column" alignItems="center">
+                  <Text fontFamily={'Kanit, sans-serif'}>บทความทั้งหมด</Text>
+                  <Image src={under} alt="under" boxSize="20px" position="relative" top="2px"/>
+                </Flex>
+              </MenuButton>
+              <MenuList >
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>บทความทั้งหมด</MenuItem>
               </Link>
-            </MenuList>
-          </Menu>
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Hobby News</MenuItem>
+              </Link>
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Buying Guide</MenuItem>
+              </Link>
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Tips & Tricks</MenuItem>
+              </Link>
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Editor's Pick</MenuItem>
+              </Link>
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>รีวิวสินค้า</MenuItem>
+              </Link>
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>Best of Mercular</MenuItem>
+              </Link>
+              <Link to={'/Login'} _hover={{LinkWithoutUnderline}} _focus={LinkWithoutUnderline} _active={LinkWithoutUnderline}>
+                <MenuItem fontFamily={'Kanit, sans-serif'} fontSize="18px" _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>เปรียบเทียบสินค้า</MenuItem>
+              </Link>
+              </MenuList>
+            </Menu>
+          </Box>
+
+          <Box p="2" ml="20px">
+            <Link to={'/Login'}>
+              <Menu>
+                <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white">
+                  <Flex justifyContent="column" alignItems="center">
+                    <Text fontFamily={'Kanit, sans-serif'}>โปรโมชั่นประจำเดือน</Text>
+                  </Flex>
+                </MenuButton>
+              </Menu>
+            </Link>
+          </Box>
           
+          <Box p="2" ml="20px">
+            <Link to={'/Login'}>
+              <Menu>
+                <MenuButton fontSize="18px" _hover={{ color: '#0F63E9' }} bg="white" >
+                  <Flex justifyContent="column" alignItems="center">
+                    <Text fontFamily={'Kanit, sans-serif'}>สินค้าลดราคา</Text>
+                  </Flex>
+                </MenuButton>
+              </Menu>
+            </Link>
+          </Box>
+
+          <SearchButtonWithModal />
+          
+          <Box p="1">
+            <Link to='/WL'>
+              <Button w="40px" h="40px" borderRadius="50%" bg="white" border="none" p={0} _hover={{ bg: 'gray.200' }}>
+                <Image src={favorite} alt="favorite" w="55%" h="55%" borderRadius="50%" />
+              </Button>
+            </Link>  
+          </Box>
+
+          <Box p="1">
+            <Link to={'Login'}>
+              <Button w="40px" h="40px" borderRadius="50%" bg="white" border="none" p={0} _hover={{ bg: 'gray.200' }}>
+                <Image src={cartlogo} alt="cartlogo" w="65%" h="65%" borderRadius="50%" />
+              </Button>
+            </Link>
+          </Box>
+
+          <Box p="1">
+            {/* <Link to={'Login'}>
+              <Button w="40px" h="40px" borderRadius="50%" bg="#0F63E9" border="none" p={0} _hover={{ bg: '#0F63E9' }}>
+              </Button>
+            </Link> */}
+            <Menu>
+              <MenuButton w="40px" h="40px" borderRadius="50%" bg="#0F63E9" border="none" p={0} _hover={{ bg: '#0F63E9' }}>
+                <Image src={profilewhite} alt="profilewhite" w="65%" h="65%" borderRadius="50%" position="relative" left="6.5px" />
+              </MenuButton>
+              <MenuList fontFamily={'Kanit, sans-serif'}>
+              < Link to='/Account' ><MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>บัญชีของฉัน</MenuItem></Link>
+                <Link to='/OL' ><MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>รายการคำสั่งซื้อ</MenuItem></Link>
+                <Link to='/WL' ><MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>รายการสินค้าที่สนใจ</MenuItem></Link>
+                <Link to='/' >
+                  <MenuItem _hover={{ color: '#0F63E9', bg: '#ECF3FD' }}>
+                    ออกจากระบบ
+                  </MenuItem>
+                </Link>
+              </MenuList>
+            </Menu>
+            
+          </Box>
+          
+        </Flex>
         </Box>
-        
       </Flex>
-      </Box>
-    </Flex>
+      }
+    </>
 
   );
 };
