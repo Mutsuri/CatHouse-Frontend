@@ -11,154 +11,245 @@ import {
   DrawerCloseButton,
   Button,
   Image,
-  Text
+  Text,
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
-import favoriticon from '/Users/pprsk/Desktop/CatHouse-master/src/assets/favorite.png'
+// import favoriticon from '/Users/pprsk/Desktop/CatHouse-master/src/assets/favorite.png'
+import favoriticon from '../../../src/assets/favorite.png';
 
 const ProductDetail = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef();
-
-    return (
-        <>
-        <Button ref={btnRef} colorScheme='white' color="black" onClick={onOpen} w='1030px' h='115px' borderBottom="1px" borderColor="#DDDDDD" rounded="none" position="relative" top="-850px">
-            <Text fontSize="24" position="relative" left="-430px">รายละเอียดสินค้า</Text>
-        </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement='right'
-          onClose={onClose}
-          finalFocusRef={btnRef}
-          size="md"
-          
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader fontFamily={'Kanit, sans-serif'}>รายละเอียดสินค้า</DrawerHeader>
-
-            <DrawerBody fontFamily={'Kanit, sans-serif'}>
-              <Text fontWeight="bold">คีมตัดเหล็กและลวดสลิง ANTON</Text>
-              <Text>สำหรับตัดเหล็กเส้น และลวดสลิงในงานซ่อมแซม หรือ DIY ต่าง ๆ โดยคีมผลิตจากเหล็ก CRV ให้ความทนทาน ปากคีมชุบแข็งจึงไม่บิ่นเสียหายง่าย สามารถจับชิ้นงานได้แน่น</Text>
-              <Text fontWeight="bold">คุณสมบัติ</Text>
-              <Text>เหมาะสำหรับตัดลวด และตัดแผ่นพลาสติก</Text>
-              <Text>ปากคีมชุบแข็ง ทนทาน คมตัดได้ไม่กินชิ้นงาน</Text>
-              <Text>ด้ามจับยางถนัดกระชับมือ ใช้งานสะดวก</Text>
-              <Text fontWeight="bold" >วิธีใช้งาน</Text>
-              <Text>เหมาะกับงานซ่อมแซม, งานเฟอร์นิเจอร์ หรือติดตั้งกับอุปกรณ์ทั่วไป</Text>
-              <Text>ไม่ควรจับชิ้นงานที่ร้อน และชิ้นงานที่มีขนาดใหญ่ เกินกว่าปากคีมจะขยายออก เพราะจะทำให้คีมเสียหาย</Text>
-              <Text fontWeight="bold" >คำแนะนำ</Text>
-              <Text>ควรใช้ผ้าชุบน้ำมันกันสนิมเช็ดส่วนที่เป็นโลหะทุกครั้งหลังใช้งาน</Text>
-              <Text fontWeight="bold">ข้อควรระวัง</Text>
-              <Text>ห้ามดัดแปลง แก้ไขสินค้า หรือนำไปใช้งานผิดประเภท</Text>
-              <Text>ห้ามใช้สารเคมีที่มีฤทธิ์เป็นกรด และด่างทำความสะอาด</Text>
-              <Text>จัดเก็บในที่แห้ง และพ้นมือเด็ก</Text>
-            </DrawerBody>
-
-            <DrawerFooter fontFamily={'Kanit, sans-serif'}>
-              
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    );
-};
-
-const ProductSize = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef();
-
-    return (
-        <>
-        <Button ref={btnRef} colorScheme='white' color="black" onClick={onOpen} w='1030px' h='115px' borderBottom="1px" borderColor="#DDDDDD" rounded="none" position="relative" top="-850px">
-            <Text fontSize="24" position="relative" left="-450px">ข้อมูลจำเพาะ</Text>
-        </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement='right'
-          onClose={onClose}
-          finalFocusRef={btnRef}
-          size="md"
-          
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader fontFamily={'Kanit, sans-serif'}>ข้อมูลจำเพาะ</DrawerHeader>
-
-            <DrawerBody fontFamily={'Kanit, sans-serif'}>
-              <Text fontWeight="bold">แบรนด์</Text>
-              <Text>ANTON</Text>
-              <Text fontWeight="bold">วัสดุหลัก</Text>
-              <Text>เหล็ก</Text>
-              <Text fontWeight="bold">ความสูง (ซม.)</Text>
-              <Text>9</Text>
-              <Text fontWeight="bold">ความกว้าง (ซม.)</Text>
-              <Text>26.5</Text>
-              <Text fontWeight="bold">ความลึก (ซม.)</Text>
-              <Text>1.5</Text>
-              <Text fontWeight="bold">ขนาดสินค้า (นิ้ว)</Text>
-              <Text>0</Text>
-
-            </DrawerBody>
-
-            <DrawerFooter fontFamily={'Kanit, sans-serif'}>
-              
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    );
-};
-
-const Product1 = () => { // Change function name to start with an uppercase letter
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
   return (
-    <Box w='1260px' h='1700px' position="relative" right="-320px" bottom="-10px" fontFamily={'Kanit, sans-serif'}>
+    <>
+      <Button
+        ref={btnRef}
+        colorScheme="white"
+        color="black"
+        onClick={onOpen}
+        w="1030px"
+        h="115px"
+        borderBottom="1px"
+        borderColor="#DDDDDD"
+        rounded="none"
+        position="relative"
+        top="-850px"
+      >
+        <Text fontSize="24" position="relative" left="-430px">
+          รายละเอียดสินค้า
+        </Text>
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+        size="md"
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader fontFamily={'Kanit, sans-serif'}>
+            รายละเอียดสินค้า
+          </DrawerHeader>
+
+          <DrawerBody fontFamily={'Kanit, sans-serif'}>
+            <Text fontWeight="bold">คีมตัดเหล็กและลวดสลิง ANTON</Text>
+            <Text>
+              สำหรับตัดเหล็กเส้น และลวดสลิงในงานซ่อมแซม หรือ DIY ต่าง ๆ
+              โดยคีมผลิตจากเหล็ก CRV ให้ความทนทาน
+              ปากคีมชุบแข็งจึงไม่บิ่นเสียหายง่าย สามารถจับชิ้นงานได้แน่น
+            </Text>
+            <Text fontWeight="bold">คุณสมบัติ</Text>
+            <Text>เหมาะสำหรับตัดลวด และตัดแผ่นพลาสติก</Text>
+            <Text>ปากคีมชุบแข็ง ทนทาน คมตัดได้ไม่กินชิ้นงาน</Text>
+            <Text>ด้ามจับยางถนัดกระชับมือ ใช้งานสะดวก</Text>
+            <Text fontWeight="bold">วิธีใช้งาน</Text>
+            <Text>
+              เหมาะกับงานซ่อมแซม, งานเฟอร์นิเจอร์ หรือติดตั้งกับอุปกรณ์ทั่วไป
+            </Text>
+            <Text>
+              ไม่ควรจับชิ้นงานที่ร้อน และชิ้นงานที่มีขนาดใหญ่
+              เกินกว่าปากคีมจะขยายออก เพราะจะทำให้คีมเสียหาย
+            </Text>
+            <Text fontWeight="bold">คำแนะนำ</Text>
+            <Text>
+              ควรใช้ผ้าชุบน้ำมันกันสนิมเช็ดส่วนที่เป็นโลหะทุกครั้งหลังใช้งาน
+            </Text>
+            <Text fontWeight="bold">ข้อควรระวัง</Text>
+            <Text>ห้ามดัดแปลง แก้ไขสินค้า หรือนำไปใช้งานผิดประเภท</Text>
+            <Text>ห้ามใช้สารเคมีที่มีฤทธิ์เป็นกรด และด่างทำความสะอาด</Text>
+            <Text>จัดเก็บในที่แห้ง และพ้นมือเด็ก</Text>
+          </DrawerBody>
+
+          <DrawerFooter fontFamily={'Kanit, sans-serif'}></DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </>
+  );
+};
+
+const ProductSize = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+
+  return (
+    <>
+      <Button
+        ref={btnRef}
+        colorScheme="white"
+        color="black"
+        onClick={onOpen}
+        w="1030px"
+        h="115px"
+        borderBottom="1px"
+        borderColor="#DDDDDD"
+        rounded="none"
+        position="relative"
+        top="-850px"
+      >
+        <Text fontSize="24" position="relative" left="-450px">
+          ข้อมูลจำเพาะ
+        </Text>
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+        size="md"
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader fontFamily={'Kanit, sans-serif'}>
+            ข้อมูลจำเพาะ
+          </DrawerHeader>
+
+          <DrawerBody fontFamily={'Kanit, sans-serif'}>
+            <Text fontWeight="bold">แบรนด์</Text>
+            <Text>ANTON</Text>
+            <Text fontWeight="bold">วัสดุหลัก</Text>
+            <Text>เหล็ก</Text>
+            <Text fontWeight="bold">ความสูง (ซม.)</Text>
+            <Text>9</Text>
+            <Text fontWeight="bold">ความกว้าง (ซม.)</Text>
+            <Text>26.5</Text>
+            <Text fontWeight="bold">ความลึก (ซม.)</Text>
+            <Text>1.5</Text>
+            <Text fontWeight="bold">ขนาดสินค้า (นิ้ว)</Text>
+            <Text>0</Text>
+          </DrawerBody>
+
+          <DrawerFooter fontFamily={'Kanit, sans-serif'}></DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </>
+  );
+};
+
+const Product1 = () => {
+  // Change function name to start with an uppercase letter
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+
+  return (
+    <Box
+      w="1260px"
+      h="1700px"
+      position="relative"
+      right="-320px"
+      bottom="-10px"
+      fontFamily={'Kanit, sans-serif'}
+    >
       {/* <Box w='1260px' h='30px' bg="blue.200"></Box> */}
-      <Box w='1260px' h='25px'></Box>
-      <Box w='1260px' h='2100px'>
+      <Box w="1260px" h="25px"></Box>
+      <Box w="1260px" h="2100px">
         <Flex>
-          <Box w='1040px' h='2100px'>
+          <Box w="1040px" h="2100px">
             <Flex>
-              <Box w='400px' h='400px' bg="#DDDDDD"></Box>
-              <Box w='400px' h='400px' bg="#DDDDDD" position="relative" right="-20px"></Box>
+              <Box w="400px" h="400px" bg="#DDDDDD"></Box>
+              <Box
+                w="400px"
+                h="400px"
+                bg="#DDDDDD"
+                position="relative"
+                right="-20px"
+              ></Box>
             </Flex>
             <Flex position="relative" bottom="-20px">
-              <Box w='400px' h='400px' bg="#DDDDDD"></Box>
-              <Box w='400px' h='400px' bg="#DDDDDD" position="relative" right="-20px"></Box>
+              <Box w="400px" h="400px" bg="#DDDDDD"></Box>
+              <Box
+                w="400px"
+                h="400px"
+                bg="#DDDDDD"
+                position="relative"
+                right="-20px"
+              ></Box>
             </Flex>
             <Flex position="relative" bottom="-40px">
-              <Box w='400px' h='400px' bg="#DDDDDD"></Box>
-              <Box w='400px' h='400px' bg="#DDDDDD" position="relative" right="-20px"></Box>
+              <Box w="400px" h="400px" bg="#DDDDDD"></Box>
+              <Box
+                w="400px"
+                h="400px"
+                bg="#DDDDDD"
+                position="relative"
+                right="-20px"
+              ></Box>
             </Flex>
           </Box>
-          <Box w='440px' h='610px'>
+          <Box w="440px" h="610px">
             <Text>ANTON</Text>
             <Box>
               <Flex>
                 <Text fontSize="22">คีมตัดเหล็กและลวดสลิง ANTON</Text>
-              <Button position="relative" right="-10px" bottom="-2px" h="30px" bg="white" _hover={{ bg: 'white' }}><Image src={favoriticon} alt="Logo" width="20px" height="20px" /></Button>
+                <Button
+                  position="relative"
+                  right="-10px"
+                  bottom="-2px"
+                  h="30px"
+                  bg="white"
+                  _hover={{ bg: 'white' }}
+                >
+                  <Image
+                    src={favoriticon}
+                    alt="Logo"
+                    width="20px"
+                    height="20px"
+                  />
+                </Button>
               </Flex>
             </Box>
             <Text fontSize="20">390บาท</Text>
-            <Box w='375px' h='250px' position="relative" bottom="-30px">
+            <Box w="375px" h="250px" position="relative" bottom="-30px">
               <Text fontSize="18px">1.เหมาะสำหรับตัดลวด และตัดแผ่นพลาสติก</Text>
-              <Text fontSize="18px">2.ปากคีมชุบแข็ง ทนทาน คมตัดได้ไม่กินชิ้นงาน</Text>
+              <Text fontSize="18px">
+                2.ปากคีมชุบแข็ง ทนทาน คมตัดได้ไม่กินชิ้นงาน
+              </Text>
               <Text fontSize="18px">3.ด้ามจับยางถนัดกระชับมือ ใช้งานสะดวก</Text>
             </Box>
-            <Button w='375px' h='55px' bg="#006CAD" position="relative" bottom="-60px" borderRadius="100px" color="white" _hover={{ bg: '#0058A3' }}> เพิ่มสินค้าลงตระกร้า</Button>
+            <Button
+              w="375px"
+              h="55px"
+              bg="#006CAD"
+              position="relative"
+              bottom="-60px"
+              borderRadius="100px"
+              color="white"
+              _hover={{ bg: '#0058A3' }}
+            >
+              {' '}
+              เพิ่มสินค้าลงตระกร้า
+            </Button>
             {/* <Box w='375px' h='55px' bg="#0058A3" position="relative" bottom="-60px" borderRadius="100px">
               <Text color="white" display="flex" justifyContent="center" position="relative" bottom="-15px"></Text>
             </Box> */}
           </Box>
         </Flex>
       </Box>
-      <ProductDetail/>
-      <ProductSize/>
+      <ProductDetail />
+      <ProductSize />
     </Box>
   );
 };
