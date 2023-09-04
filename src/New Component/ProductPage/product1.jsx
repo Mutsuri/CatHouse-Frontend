@@ -14,8 +14,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
-// import favoriticon from '/Users/pprsk/Desktop/CatHouse-master/src/assets/favorite.png'
-import favoriticon from '../../../src/assets/favorite.png';
+import favoriticon from "../../assets/favorite.png"
 
 const ProductDetail = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
